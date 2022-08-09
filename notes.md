@@ -1,4 +1,4 @@
-### Naming
+## Naming
 
 Variables and constants: data containers, use nouns or short phares with adjectives.
 Ex:
@@ -42,7 +42,7 @@ Describe the object. Ex: `Customer`.
 
 Don't include redundant information in names. Ex: `user = User('Max', 31).
 
-### Comments, structure and formatting
+## Comments, structure and formatting
 
 Avoid redundant comments. Good comments: legal info., explanation which can't be
 replaced by good naming, warnings, TODOs and documentation.
@@ -58,3 +58,38 @@ density (no blank lines) implies close link or assossiation.
 
 Horizontal formatting: avoid long lines of code. Lines should be of the sizes
 100-120-max 200 characters.
+
+## Functions/methods
+
+Calling the function, the number of arguments and it's order should all be
+straightforward. A function should be small and do one thing.
+
+- **Minimize** the number of arguments
+- Consider using a single parameter (ex: can it be an object, specially for many
+  arguments). Ex:
+
+```js
+const user = new User({ name: "Nat", email: "foo@example.com", age: "27" });
+```
+
+- Try to avoid output arguments, specially if they are unexpected. Ex: instead of
+  `createId(user)`, that internally modifies a user, do `user.addId()`, to be explicit.
+
+There are different levels of abstraction, and functions should do work that's one level
+of abstraction below theirs. Try not to mix many levels of abstraction, rather, split
+the functions into smaller fucntion.
+
+- High level:
+
+```js
+isEmail(email);
+```
+
+- Low level:
+
+```js
+email.includes("@");
+```
+
+Rule of thumb: extract code that works on the same functionality, or that requires more
+interpretation than the surrounding code.
