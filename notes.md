@@ -93,3 +93,22 @@ email.includes("@");
 
 Rule of thumb: extract code that works on the same functionality, or that requires more
 interpretation than the surrounding code.
+
+DRY: "don't repeat yourself", don't write the same code more than once. Obs: being
+granula as possible won't automaticallly improve readability.
+
+Avoid unexpected side effects: the same input should return the same output (pure
+function). Minimize the number of functions with side effects.
+
+```js
+function createUser(email, password) {
+  const user = new User(email, password);
+  startSession(user); // side effect
+  return user;
+}
+```
+
+A side effect is an operation which does not jus act on a function input and change the
+function output but which instead changes the overall system/program state.
+
+Obs: unit testing can help identify clean code.
