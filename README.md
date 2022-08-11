@@ -112,3 +112,21 @@ A side effect is an operation which does not jus act on a function input and cha
 function output but which instead changes the overall system/program state.
 
 Obs: unit testing can help identify clean code.
+
+## Control structures
+
+Use guards and fail fast! Instead of:
+
+```js
+if (email.includes("@")) {
+  // do stuff
+}
+```
+
+Invert and just return if is has errors:
+
+```js
+if (!email.includes("@")) {
+  return;
+}
+```
