@@ -130,3 +130,6 @@ if (!email.includes("@")) {
   return;
 }
 ```
+
+Some tips: avoid deep nesting, prefer positive checks (`isEmpty` than `isNotEmpty`),
+utilize and throw errors, use factory functions and polymorphism.
