@@ -123,7 +123,7 @@ if (email.includes("@")) {
 }
 ```
 
-Invert and just return if is has errors:
+Invert and just return if it has errors:
 
 ```js
 if (!email.includes("@")) {
@@ -133,3 +133,46 @@ if (!email.includes("@")) {
 
 Some tips: avoid deep nesting, prefer positive checks (`isEmpty` than `isNotEmpty`),
 utilize and throw errors, use factory functions and polymorphism.
+
+## Classes & Objects
+
+A bit of differentiation:
+
+- Object: has private internal/properties, public API (methods)
+- Data container/data structure: public internals/properties (almost) no API (methods)
+
+Classes should be small, prefer many small classes over a few large ones.
+
+Cohesion: how much are your class methods using the class properties? Maintain high
+cohesion!
+
+### Law of Demeter
+
+The Law of Demeter (LoD) or principle of least knowledge is a design guideline for
+developing software, particularly object-oriented programs. In its general form, the LoD
+is a specific case of loose coupling. It can be summarized in each of the following
+ways:
+
+- Each unit should have only limited knowledge about other units: only units "closely"
+  related to the current unit.
+- Each unit should only talk to its friends; don't talk to strangers.
+- Only talk to your immediate friends.
+
+The fundamental notion is that a given object should assume as little as possible about
+the structure or properties of anything else (including its subcomponents), in
+accordance with the principle of "information hiding". It may be viewed as a corollary
+to the principle of least privilege, which dictates that a module possess only the
+information and resources necessary for its legitimate purpose.
+
+### SOLID principles
+
+- The **single-responsibility principle**: "There should never be more than one reason for a
+  class to change." In other words, every class should have only one responsibility.
+- The **open–closed principle**: "Software entities ... should be open for extension, but
+  closed for modification."
+- The **Liskov substitution principle**: "Functions that use pointers or references to base
+  classes must be able to use objects of derived classes without knowing it." See also
+  design by contract.
+- The **interface segregation principle**: "Clients should not be forced to depend upon
+  interfaces that they do not use."
+- The **dependency inversion principle**: "Depend upon abstractions, not concretions."
